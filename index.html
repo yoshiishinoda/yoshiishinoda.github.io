@@ -118,9 +118,11 @@ h1{font-family:var(--f-display); font-weight:700; font-size:clamp(48px, 11vw, 11
 .chips a{display:block; text-decoration:none; font-size:14px; padding:7px 14px; border-radius:999px; border:1.5px dashed var(--thread); color:#fbf1e1}
 /* frosted glass on hover for the top tabs */
 .chips a,.menu a{transition:background .25s ease, backdrop-filter .25s ease, -webkit-backdrop-filter .25s ease}
-.chips a:hover,.chips a:focus-visible{background:rgba(255,240,220,.16); -webkit-backdrop-filter:blur(10px) saturate(1.2); backdrop-filter:blur(10px) saturate(1.2)}
 .menu a{padding:6px 12px; border-radius:999px}
-.menu a:hover,.menu a:focus-visible{background:rgba(255,240,220,.16); -webkit-backdrop-filter:blur(10px) saturate(1.2); backdrop-filter:blur(10px) saturate(1.2)}
+/* every link: no colour fill, just frosted glass on hover */
+a{transition:backdrop-filter .25s ease, -webkit-backdrop-filter .25s ease}
+a:not(.tile):hover,a:not(.tile):focus-visible{background:transparent; -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px)}
+.contact dd a{display:inline-block; padding:0 4px; border-radius:6px}
 
 main .inner{padding-block:72px; display:flex; flex-direction:column; gap:88px}
 section{display:flex; flex-direction:column; gap:22px; scroll-margin-top:24px}
@@ -154,7 +156,7 @@ p{margin:0; max-width:62ch}
 /* Text sits on top of the image; on hover/focus the image frosts over and the Visit button appears. */
 .tile{cursor:pointer}
 .tile .shade{position:absolute; inset:0; background:rgba(10,12,18,.38)}
-.tile .frost{position:absolute; inset:0; background:rgba(245,238,228,.16); -webkit-backdrop-filter:blur(0px); backdrop-filter:blur(0px); opacity:0}
+.tile .frost{position:absolute; inset:0; background:transparent; -webkit-backdrop-filter:blur(0px); backdrop-filter:blur(0px); opacity:0}
 .tile:hover .frost,.tile:focus-visible .frost{opacity:1; -webkit-backdrop-filter:blur(14px) saturate(1.2); backdrop-filter:blur(14px) saturate(1.2)}
 .tile .cap{position:absolute; inset:0; padding:24px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:6px; text-shadow:0 1px 12px rgba(0,0,0,.35)}
 .tile .kind{font-size:12px; font-weight:500; letter-spacing:.16em; text-transform:uppercase; color:#f0cfa8}
@@ -162,14 +164,14 @@ p{margin:0; max-width:62ch}
 .tile .brand-burgis{font-weight:400; letter-spacing:.12em}
 .tile .desc{font-size:14px; color:#efe7dc; max-width:34ch; opacity:0; max-height:0; overflow:hidden}
 .tile:hover .desc,.tile:focus-visible .desc{opacity:1; max-height:6em}
-.tile .go{display:inline-flex; align-items:center; gap:8px; margin-top:10px; font-size:14px; font-weight:600; color:#1b2230; background:#f6efe6; padding:9px 18px; border-radius:999px; text-shadow:none; opacity:0; transform:translateY(6px)}
+.tile .go{display:inline-flex; align-items:center; gap:8px; margin-top:10px; font-size:14px; font-weight:600; color:#f6efe6; background:transparent; border:1.5px solid rgba(246,239,230,.85); padding:9px 18px; border-radius:999px; text-shadow:none; opacity:0; transform:translateY(6px)}
 .tile:hover .go,.tile:focus-visible .go{opacity:1; transform:none}
 @media (hover:none){.tile .desc{opacity:1; max-height:6em} .tile .go{opacity:1; transform:none}}
 @media (prefers-reduced-motion: no-preference){
   .tile .frost{transition:opacity .35s ease, backdrop-filter .35s ease, -webkit-backdrop-filter .35s ease}
   .tile .desc,.tile .go{transition:opacity .3s ease, transform .3s ease, max-height .3s ease}
 }
-.tile[aria-disabled="true"] .go{background:rgba(246,239,230,.75)}
+.tile[aria-disabled="true"] .go{border-style:dashed}
 .tile:focus-visible{outline:3px solid var(--tan); outline-offset:3px}
 .soon{position:absolute; z-index:2; top:16px; right:16px; font-family:var(--f-mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; padding:5px 10px; border-radius:999px; background:rgba(10,12,18,.55); color:#e8dfd3}
 
@@ -189,7 +191,7 @@ p{margin:0; max-width:62ch}
 .contact dd{margin:0; overflow-wrap:anywhere}
 .todo{color:var(--tan); font-style:italic}
 .contact dd a{color:var(--tan); text-decoration:underline; text-underline-offset:4px}
-.contact dd a:hover{color:var(--ink)}
+
 @media (max-width:640px){.contact{grid-template-columns:1fr}}
 
 /* No bold anywhere: one regular weight; headings and brand names use all caps with spacing instead. */
@@ -226,7 +228,7 @@ img{max-width:100%}
       <p class="tagline">People, products and systems that keep businesses moving.</p>
       <span class="stitch" aria-hidden="true"></span>
       <ul class="chips">
-        <li><a href="#mp">Manpower</a></li>
+        <li><a href="staffing/">Manpower</a></li>
         <li><a href="#burgis">Leather Manufacturing</a></li>
         <li><a href="#ops">Business Operations &amp; Automation</a></li>
       </ul>
@@ -264,10 +266,9 @@ img{max-width:100%}
           </span>
         </a>
 
-        <a class="tile" id="mp" href="#" aria-disabled="true">
+        <a class="tile" id="mp" href="staffing/">
           <img src="manpower.jpg" alt="A team meeting around a wooden table with laptops and tablets" style="object-position:55% 50%">
           <span class="shade"></span><span class="frost"></span>
-          <span class="soon">Site coming soon</span>
           <span class="cap">
             <span class="kind">Remote &amp; On-site Staffing</span>
             <span class="name">Manpower</span>
