@@ -116,7 +116,11 @@ h1{font-family:var(--f-display); font-weight:700; font-size:clamp(48px, 11vw, 11
 .stitch{display:block; height:0; border-top:2px dashed var(--thread); max-width:260px}
 .chips{display:flex; flex-wrap:wrap; gap:8px; margin:0; padding:0; list-style:none}
 .chips a{display:block; text-decoration:none; font-size:14px; padding:7px 14px; border-radius:999px; border:1.5px dashed var(--thread); color:#fbf1e1}
-.chips a:hover{background:rgba(243,227,198,.15)}
+/* frosted glass on hover for the top tabs */
+.chips a,.menu a{transition:background .25s ease, backdrop-filter .25s ease, -webkit-backdrop-filter .25s ease}
+.chips a:hover,.chips a:focus-visible{background:rgba(255,240,220,.16); -webkit-backdrop-filter:blur(10px) saturate(1.2); backdrop-filter:blur(10px) saturate(1.2)}
+.menu a{padding:6px 12px; border-radius:999px}
+.menu a:hover,.menu a:focus-visible{background:rgba(255,240,220,.16); -webkit-backdrop-filter:blur(10px) saturate(1.2); backdrop-filter:blur(10px) saturate(1.2)}
 
 main .inner{padding-block:72px; display:flex; flex-direction:column; gap:88px}
 section{display:flex; flex-direction:column; gap:22px; scroll-margin-top:24px}
