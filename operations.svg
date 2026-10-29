@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2a2f4d"/><stop offset="1" stop-color="#101322"/>
+    </linearGradient>
+    <pattern id="dots" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle cx="9" cy="9" r="1.2" fill="#f3e3c6" opacity=".16"/>
+    </pattern>
+    <g id="node">
+      <rect x="-30" y="-30" width="60" height="60" rx="12" fill="#1d2238" stroke="#dcb184" stroke-opacity=".7" stroke-width="1.6"/>
+      <circle cx="-30" cy="0" r="4" fill="#dcb184"/>
+      <circle cx="30" cy="0" r="4" fill="#dcb184"/>
+    </g>
+  </defs>
+  <rect width="400" height="500" fill="url(#bg)"/>
+  <rect width="400" height="500" fill="url(#dots)"/>
+
+  <!-- connections -->
+  <g fill="none" stroke="#dcb184" stroke-width="2" stroke-opacity=".75">
+    <path d="M100 90 C140 90 140 90 170 90"/>
+    <path d="M230 90 C280 90 270 170 300 170"/>
+    <path d="M230 90 C280 90 270 46 300 46" stroke-dasharray="5 5"/>
+    <path d="M100 260 C150 260 110 380 170 380"/>
+    <path d="M100 260 C140 260 140 260 170 260" />
+    <path d="M230 260 C270 260 260 330 300 330"/>
+    <path d="M230 380 C270 380 260 330 300 330"/>
+    <path d="M330 170 C380 170 380 230 40 230 C10 230 20 260 40 260" stroke-opacity=".35"/>
+  </g>
+
+  <!-- nodes with simple glyphs -->
+  <!-- trigger (lightning) -->
+  <g transform="translate(70 90)"><use href="#node"/>
+    <path d="M4 -14 L-8 3 H0 L-4 15 L9 -3 H1 Z" fill="#f3e3c6"/></g>
+  <!-- sheet (grid) -->
+  <g transform="translate(200 90)"><use href="#node"/>
+    <rect x="-12" y="-14" width="24" height="28" rx="3" fill="none" stroke="#f3e3c6" stroke-width="2"/>
+    <path d="M-12 -4 H12 M-12 5 H12 M0 -14 V14" stroke="#f3e3c6" stroke-width="1.6"/></g>
+  <!-- if/branch -->
+  <g transform="translate(330 170)"><use href="#node"/>
+    <path d="M-10 -10 V10 M-10 0 H0 L10 -10 M0 0 L10 10" stroke="#f3e3c6" stroke-width="2.2" fill="none" stroke-linecap="round"/></g>
+  <!-- clock / schedule -->
+  <g transform="translate(330 46)"><use href="#node"/>
+    <circle r="12" fill="none" stroke="#f3e3c6" stroke-width="2"/><path d="M0 -7 V0 L6 4" stroke="#f3e3c6" stroke-width="2" fill="none" stroke-linecap="round"/></g>
+  <!-- webhook / globe -->
+  <g transform="translate(70 260)"><use href="#node"/>
+    <circle r="12" fill="none" stroke="#f3e3c6" stroke-width="2"/><path d="M-12 0 H12 M0 -12 C-7 -4 -7 4 0 12 C7 4 7 -4 0 -12" stroke="#f3e3c6" stroke-width="1.6" fill="none"/></g>
+  <!-- AI (spark) -->
+  <g transform="translate(200 260)"><use href="#node"/>
+    <path d="M0 -14 L3 -3 L14 0 L3 3 L0 14 L-3 3 L-14 0 L-3 -3 Z" fill="#f3e3c6"/></g>
+  <!-- message -->
+  <g transform="translate(200 380)"><use href="#node"/>
+    <path d="M-13 -10 H13 V7 H-2 L-9 13 V7 H-13 Z" fill="none" stroke="#f3e3c6" stroke-width="2" stroke-linejoin="round"/></g>
+  <!-- report (chart) -->
+  <g transform="translate(330 330)"><use href="#node"/>
+    <path d="M-12 12 V-12 M-12 12 H12" stroke="#f3e3c6" stroke-width="2"/>
+    <rect x="-7" y="0" width="5" height="10" fill="#f3e3c6"/><rect x="0" y="-6" width="5" height="16" fill="#f3e3c6"/><rect x="7" y="-11" width="5" height="21" fill="#f3e3c6"/></g>
+
+  <!-- data packets moving on links -->
+  <circle cx="150" cy="90" r="3.2" fill="#ffd9a8"/>
+  <circle cx="276" cy="140" r="3.2" fill="#ffd9a8"/>
+  <circle cx="140" cy="330" r="3.2" fill="#ffd9a8"/>
+  <circle cx="268" cy="300" r="3.2" fill="#ffd9a8"/>
+  <!-- success check -->
+  <g transform="translate(352 300)"><circle r="9" fill="#3f8f6b"/><path d="M-4 0 L-1 3 L4 -3" stroke="#fff" stroke-width="2" fill="none"/></g>
+</svg>

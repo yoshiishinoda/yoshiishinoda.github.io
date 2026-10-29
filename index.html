@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ishinoda Inc.</title>
+<meta name="description" content="Ishinoda Inc., founded by Yoshi Ishinoda in Manila, Philippines: manpower, leather manufacturing (BURGIS), and business operations and automation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "#org",
+      "name": "Ishinoda Inc.",
+      "description": "Manpower, leather manufacturing, business operations and automation services.",
+      "address": {"@type": "PostalAddress", "addressLocality": "Manila", "addressCountry": "PH"},
+      "founder": {"@id": "#yoshi"},
+      "subOrganization": [{"@type": "Organization", "name": "BURGIS", "description": "Handmade luxury leather goods"}],
+      "makesOffer": [
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Manpower services"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Leather manufacturing"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Business operations and automation"}}
+      ],
+      "sameAs": []
+    },
+    {
+      "@type": "Person",
+      "@id": "#yoshi",
+      "name": "Yoshi Ishinoda",
+      "jobTitle": "Founder, Ishinoda Inc.",
+      "email": "mailto:yoshiishinoda@gmail.com",
+      "sameAs": ["https://www.linkedin.com/in/yoshi-camposano-16a89a382"],
+      "worksFor": {"@id": "#org"},
+      "address": {"@type": "PostalAddress", "addressLocality": "Manila", "addressCountry": "PH"},
+      "knowsAbout": ["Business operations", "Manpower services", "Leather manufacturing", "Process automation", "Project management", "Executive support"]
+    }
+  ]
+}
+</script>
+
+<style>
+/* Layout: a deep-navy hero band, then the founder's story, then large photo tiles (one per company) that open each company's site.
+   Palette taken from the BURGIS wallet: saddle tan, teal strap, cream thread, navy ink. */
+:root{
+  --bg:#f5f0e9;
+  --surface:#ebe3d8;
+  --ink:#1b2230;
+  --muted:#5d6470;
+  --tan:#9a5a2c;
+  --teal:#1f5a66;
+  --thread:#c9a27a;
+  --band:#141a26;      /* hero band, same in both themes */
+  --band-ink:#f1e9de;
+  --f-display:"Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-body:"Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono:"Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+/* Single look: chocolate full-grain leather with cream stitching, the same in light and dark mode. */
+:root{
+  --bg:#3a2014;          /* chocolate hide */
+  --surface:rgba(0,0,0,.22);
+  --ink:#f3e6d3;         /* cream text on chocolate */
+  --muted:#cdb497;
+  --tan:#dcb184;         /* warm accent on leather */
+  --teal:#1f5a66;
+  --thread:#eedcbd;      /* cream stitching */
+  --band:#2a170e;
+  --band-ink:#fbf1e1;
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+body{
+  color:var(--ink); font-family:var(--f-body); font-size:16px; line-height:1.65; font-weight:400;
+  background-color:var(--bg);
+  /* seamless full-grain chocolate leather with a flowing sheen */
+  background-image:url("leather.jpg");
+  background-size:1024px 1024px;
+  background-repeat:repeat;
+}
+/* stitched edge around the whole page */
+.hide{position:relative; margin:14px; border-radius:14px; outline:2px dashed var(--thread); outline-offset:-8px; overflow:hidden}
+@media (max-width:600px){.hide{margin:8px; outline-offset:-6px}}
+a{color:inherit}
+a:focus-visible{outline:2px solid var(--tan); outline-offset:3px; border-radius:3px}
+@media (prefers-reduced-motion: no-preference){
+  .tile img,.tile .art{transition:transform .6s ease}
+  .tile:hover img,.tile:hover .art{transform:scale(1.05)}
+  .tile .arrow{transition:transform .25s ease}
+  .tile:hover .arrow{transform:translateX(4px)}
+}
+
+.inner{
+  max-width:1080px; margin:0 auto;
+  padding-left:max(20px, env(safe-area-inset-left, 0px));
+  padding-right:max(20px, env(safe-area-inset-right, 0px));
+}
+
+/* Hero band */
+.band{background:rgba(0,0,0,.22); color:var(--band-ink); border-bottom:2px dashed var(--thread)}
+.band .inner{padding-block:22px 76px; display:flex; flex-direction:column; gap:64px}
+.top{display:flex; flex-wrap:wrap; gap:10px 28px; align-items:center; justify-content:space-between}
+.brand{font-family:var(--f-display); font-size:19px; font-weight:600; text-decoration:none; color:var(--band-ink)}
+.menu{display:flex; flex-wrap:wrap; gap:4px 22px; margin:0; padding:0; list-style:none}
+.menu a{text-decoration:none; font-size:15px; color:#f3e3c6}
+.menu a:hover{color:var(--band-ink)}
+.hero{display:flex; flex-direction:column; gap:20px; max-width:760px}
+.eyebrow{font-family:var(--f-mono); font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#f3e3c6}
+h1{font-family:var(--f-display); font-weight:700; font-size:clamp(48px, 11vw, 112px); line-height:1; margin:0; letter-spacing:-.03em}
+.tagline{font-size:clamp(19px, 2.4vw, 23px); color:#fbf1e1; margin:0; max-width:34ch; text-wrap:balance}
+.stitch{display:block; height:0; border-top:2px dashed var(--thread); max-width:260px}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin:0; padding:0; list-style:none}
+.chips a{display:block; text-decoration:none; font-size:14px; padding:7px 14px; border-radius:999px; border:1.5px dashed var(--thread); color:#fbf1e1}
+.chips a:hover{background:rgba(243,227,198,.15)}
+
+main .inner{padding-block:72px; display:flex; flex-direction:column; gap:88px}
+section{display:flex; flex-direction:column; gap:22px; scroll-margin-top:24px}
+h2{font-family:var(--f-display); font-weight:600; font-size:clamp(28px, 4vw, 38px); margin:0; line-height:1.2; letter-spacing:-.015em; text-wrap:balance}
+h3{margin:0; font-weight:600}
+p{margin:0; max-width:62ch}
+.label{font-family:var(--f-mono); font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--tan)}
+
+/* About */
+.about{display:block; max-width:720px}
+.about-text{display:flex; flex-direction:column; gap:16px}
+.lede{font-size:20px; line-height:1.55}
+.path{list-style:none; margin:0; padding:22px 24px; background:var(--surface); border-radius:8px; display:flex; flex-direction:column; gap:14px}
+.path li{display:flex; flex-direction:column; gap:0}
+.path .when{font-family:var(--f-mono); font-size:12px; color:var(--muted); font-variant-numeric:tabular-nums}
+.path .role{font-weight:600; font-size:16px}
+.path .org{color:var(--tan); font-weight:500}
+@media (max-width:760px){.about{grid-template-columns:1fr; gap:28px}}
+
+/* Photo tiles */
+.tiles{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:18px}
+.tiles .tile{aspect-ratio:4/5}
+@media (max-width:860px){.tiles{grid-template-columns:1fr} .tiles .tile{aspect-ratio:4/3}}
+.tile{
+  position:relative; display:block; text-decoration:none; color:#f6efe6;
+  border-radius:10px; overflow:hidden; aspect-ratio:4/3; max-width:100%;
+  background:var(--surface);
+}
+.tile img{width:100%; height:100%; object-fit:cover; display:block}
+.tile .art{position:absolute; inset:0}
+/* Text sits on top of the image; on hover/focus the image frosts over and the Visit button appears. */
+.tile{cursor:pointer}
+.tile .shade{position:absolute; inset:0; background:rgba(10,12,18,.38)}
+.tile .frost{position:absolute; inset:0; background:rgba(245,238,228,.16); -webkit-backdrop-filter:blur(0px); backdrop-filter:blur(0px); opacity:0}
+.tile:hover .frost,.tile:focus-visible .frost{opacity:1; -webkit-backdrop-filter:blur(14px) saturate(1.2); backdrop-filter:blur(14px) saturate(1.2)}
+.tile .cap{position:absolute; inset:0; padding:24px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:6px; text-shadow:0 1px 12px rgba(0,0,0,.35)}
+.tile .kind{font-size:12px; font-weight:500; letter-spacing:.16em; text-transform:uppercase; color:#f0cfa8}
+.tile .name{font-weight:700; font-size:clamp(28px, 3.6vw, 40px); line-height:1.1; letter-spacing:-.02em}
+.tile .brand-burgis{font-weight:400; letter-spacing:.12em}
+.tile .desc{font-size:14px; color:#efe7dc; max-width:34ch; opacity:0; max-height:0; overflow:hidden}
+.tile:hover .desc,.tile:focus-visible .desc{opacity:1; max-height:6em}
+.tile .go{display:inline-flex; align-items:center; gap:8px; margin-top:10px; font-size:14px; font-weight:600; color:#1b2230; background:#f6efe6; padding:9px 18px; border-radius:999px; text-shadow:none; opacity:0; transform:translateY(6px)}
+.tile:hover .go,.tile:focus-visible .go{opacity:1; transform:none}
+@media (hover:none){.tile .desc{opacity:1; max-height:6em} .tile .go{opacity:1; transform:none}}
+@media (prefers-reduced-motion: no-preference){
+  .tile .frost{transition:opacity .35s ease, backdrop-filter .35s ease, -webkit-backdrop-filter .35s ease}
+  .tile .desc,.tile .go{transition:opacity .3s ease, transform .3s ease, max-height .3s ease}
+}
+.tile[aria-disabled="true"] .go{background:rgba(246,239,230,.75)}
+.tile:focus-visible{outline:3px solid var(--tan); outline-offset:3px}
+.soon{position:absolute; z-index:2; top:16px; right:16px; font-family:var(--f-mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; padding:5px 10px; border-radius:999px; background:rgba(10,12,18,.55); color:#e8dfd3}
+
+
+/* Placeholder art for companies without a photo yet */
+.art-mp{background:radial-gradient(120% 90% at 20% 10%, #2c6a74 0%, #1a3a42 55%, #10222a 100%)}
+.art-ops{background:radial-gradient(120% 90% at 80% 10%, #3a3f63 0%, #22263d 55%, #141726 100%)}
+.art-auto{background:radial-gradient(120% 90% at 50% 0%, #7a4a2a 0%, #3e2617 55%, #1d130c 100%)}
+.art::after{
+  content:""; position:absolute; inset:16px; border:1.5px dashed rgba(233,205,170,.35); border-radius:6px;
+}
+
+/* Contact */
+.contact{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:16px; margin:0}
+.contact div{background:var(--surface); border-radius:8px; padding:18px 20px; display:flex; flex-direction:column; gap:4px; min-width:0}
+.contact dt{font-family:var(--f-mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted)}
+.contact dd{margin:0; overflow-wrap:anywhere}
+.todo{color:var(--tan); font-style:italic}
+.contact dd a{color:var(--tan); text-decoration:underline; text-underline-offset:4px}
+.contact dd a:hover{color:var(--ink)}
+@media (max-width:640px){.contact{grid-template-columns:1fr}}
+
+/* No bold anywhere: one regular weight; headings and brand names use all caps with spacing instead. */
+*, *::before, *::after{font-weight:300 !important}
+h1, h2, .brand, .tile .name{font-weight:200 !important}
+h1{text-transform:uppercase; letter-spacing:.06em; font-size:clamp(40px, 9vw, 96px)}
+.brand{text-transform:uppercase; letter-spacing:.14em; font-size:15px}
+.tile .name{text-transform:uppercase; letter-spacing:.1em; font-size:clamp(22px, 2.8vw, 30px)}
+h2{letter-spacing:-.005em}
+
+footer .inner{padding-block:28px 40px; border-top:1px dashed var(--thread); font-family:var(--f-mono); font-size:12px; color:var(--muted); display:flex; flex-wrap:wrap; gap:8px 24px; justify-content:space-between}
+
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2712%27 fill=%27%233a2014%27/%3E%3Ctext x=%2732%27 y=%2742%27 font-family=%27Arial%27 font-size=%2728%27 fill=%27%23eedcbd%27 text-anchor=%27middle%27%3EI%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<div class="hide">
+<div class="band">
+  <div class="inner">
+    <div class="top">
+      <a class="brand" href="#top" id="top">Ishinoda Inc.</a>
+      <ul class="menu">
+        <li><a href="#about">About</a></li>
+        <li><a href="#companies">Our companies</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <header class="hero">
+      <span class="eyebrow">Manila, Philippines · Founded by Yoshi Ishinoda</span>
+      <h1>Ishinoda Inc.</h1>
+      <p class="tagline">People, products and systems that keep businesses moving.</p>
+      <span class="stitch" aria-hidden="true"></span>
+      <ul class="chips">
+        <li><a href="#mp">Manpower</a></li>
+        <li><a href="#burgis">Leather Manufacturing</a></li>
+        <li><a href="#ops">Business Operations &amp; Automation</a></li>
+      </ul>
+    </header>
+  </div>
+</div>
+
+<main>
+  <div class="inner">
+    <section id="about" aria-labelledby="about-h">
+      <span class="label">About the founder</span>
+      <div class="about">
+        <div class="about-text">
+          <h2 id="about-h">Hi, I'm Yoshi Ishinoda.</h2>
+          <p class="lede">I have spent more than six years in operations and executive support: running businesses and business operations, managing projects, supporting a CEO directly and training frontline teams.</p>
+          <p>I started Ishinoda Inc. so others can experience what I love doing: taking work off their plate so they can focus on what matters most. We find the right people for your team, and we run and automate your business operations for you.</p>
+          <p>And because I know how hard it is to find truly good leather goods, we offer bespoke pieces made by a Japanese artisan under our own brand, BURGIS.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="companies" aria-labelledby="companies-h">
+      <span class="label">What we offer</span>
+      <h2 id="companies-h">Our companies</h2>
+      <div class="tiles">
+        <a class="tile" id="burgis" href="#" aria-disabled="true">
+          <img src="burgis.jpg" alt="Hand-stitched BURGIS card wallet in tan leather with a teal strap">
+          <span class="shade"></span><span class="frost"></span>
+          <span class="soon">Site coming soon</span>
+          <span class="cap">
+            <span class="kind">Leather Manufacturing</span>
+            <span class="name brand-burgis">BURGIS</span>
+            <span class="desc">Quality leather goods are hard to find. We offer bespoke pieces made by a Japanese artisan.</span>
+            <span class="go">Visit BURGIS <span class="arrow" aria-hidden="true">→</span></span>
+          </span>
+        </a>
+
+        <a class="tile" id="mp" href="#" aria-disabled="true">
+          <img src="manpower.jpg" alt="A team meeting around a wooden table with laptops and tablets" style="object-position:55% 50%">
+          <span class="shade"></span><span class="frost"></span>
+          <span class="soon">Site coming soon</span>
+          <span class="cap">
+            <span class="kind">Manpower</span>
+            <span class="name">Manpower</span>
+            <span class="desc">Sourcing, screening, training and managing the right staff for your team.</span>
+            <span class="go">Visit site <span class="arrow" aria-hidden="true">→</span></span>
+          </span>
+        </a>
+
+        <a class="tile" id="ops" href="#" aria-disabled="true">
+          <img src="operations.svg" alt="Illustration of an automation workflow: connected nodes for a trigger, spreadsheet, AI step, message and report">
+          <span class="shade"></span><span class="frost"></span>
+          <span class="soon">Site coming soon</span>
+          <span class="cap">
+            <span class="kind">Business Operations &amp; Automation</span>
+            <span class="name">Operations &amp; Automation</span>
+            <span class="desc">Running your operations, projects and reporting, and automating the routine work with Make and AI tools.</span>
+            <span class="go">Visit site <span class="arrow" aria-hidden="true">→</span></span>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-h">
+      <span class="label">Get in touch</span>
+      <h2 id="contact-h">Contact</h2>
+      <dl class="contact">
+        <div><dt>Email</dt><dd><a href="mailto:yoshiishinoda@gmail.com">yoshiishinoda@gmail.com</a></dd></div>
+        <div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/yoshi-camposano-16a89a382" target="_blank" rel="noopener">LinkedIn</a></dd></div>
+        <div><dt>Based in</dt><dd>Manila, Philippines</dd></div>
+      </dl>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="inner">
+    <span>© 2026 Ishinoda Inc.</span>
+    <span>BURGIS is a brand of Ishinoda Inc.</span>
+  </div>
+</footer>
+</div>
+
+<script>
+// Tiles without a website yet stay on the page instead of jumping to the top.
+document.querySelectorAll('.tile[aria-disabled="true"]').forEach(function(t){
+  t.addEventListener('click', function(e){ e.preventDefault(); });
+});
+</script>
+</body>
+</html>
